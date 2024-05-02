@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 02</title>
+</head>
+
+<body>
+    <textarea id="userText" rows="10" cols="30"></textarea>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textarea = document.getElementById('userText');
+
+            // Завантаження збереженого тексту з localStorage при завантаженні сторінки
+            textarea.value = localStorage.getItem('savedText') || '';
+
+            // Збереження тексту у localStorage кожного разу, коли відбувається зміна
+            textarea.addEventListener('input', function() {
+                localStorage.setItem('savedText', textarea.value);
+            });
+        });
+    </script>
+</body>
+
+</html>
